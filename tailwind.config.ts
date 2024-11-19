@@ -12,6 +12,14 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      maxWidth:{
+        max:'1250px'
+      },
+      fontFamily:{
+        poppins: "Poppins",
+        sora:"Sora",
+        inter:"Inter"
+      }
     },
   },
   plugins: [],
