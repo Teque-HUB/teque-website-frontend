@@ -3,7 +3,7 @@ import React from "react";
 
 const FintechCard = () => {
   return (
-    <div className="w-full h-full bg-[#C9DA8F] rounded-[32px] px-6 pb-6">
+    <div className="w-full lg:h-full bg-[#C9DA8F] rounded-[32px] px-6 pb-6">
       <span className="relative inline-flex w-full max-w-[206px]  translate-y-[-20%]">
         {" "}
         <Image

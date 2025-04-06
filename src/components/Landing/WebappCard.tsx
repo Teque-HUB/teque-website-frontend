@@ -3,7 +3,7 @@ import React from "react";
 
 const WebappCard = () => {
   return (
-    <div className="w-full max-w-[258px] bg-[#B8CEDC] rounded-[32px] p-[26px] pb-0 pr-0 flex flex-col justify-between">
+    <div className="w-full lg:max-w-[258px] bg-[#B8CEDC] rounded-[32px] p-[26px] pb-0 pr-0 flex flex-col justify-between">
       <div className="flex flex-col">
         <h2 className=" h-[27px] text-[#1c471f] text-2xl font-bold font-['Inter'] leading-7  mb-[14px]">
           WEb 2 Apps
