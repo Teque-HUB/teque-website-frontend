@@ -13,7 +13,7 @@ const SectionFour = () => {
         various parts of the world.
       </p>
 
-      <div className="mt-11 overflow-x-scroll w-full flex gap-3">
+      <div className="mt-11 overflow-x-scroll  w-full flex gap-3">
         <div className="w-full max-w-[630px] bg-[#0077F9] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px]">
           <span className="inline-flex h-full max-h-[60px] w-full max-w-[186px]">
             <Image
@@ -62,6 +62,35 @@ const SectionFour = () => {
           <span className="inline-flex w-full max-w-[664px]">
             <Image
               src={"/images/vapzer.png"}
+              height={0}
+              width={0}
+              alt="urunner"
+              sizes="100vw"
+              style={{ width: "100%", height: "100%" }}
+              className="object-cover "
+            />
+          </span>
+        </div>
+        <div className="w-full max-w-[630px] bg-[#665824] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px]">
+          <span className="inline-flex h-full max-h-[60px] w-full max-w-[186px]">
+            <Image
+              src={"/images/htradelogo.png"}
+              height={0}
+              width={0}
+              alt="htrade"
+              sizes="100vw"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </span>
+
+          <p className="w-[243px] md:w-[350px] lg:w-[530px] mt-5 mb-11 text-white text-base font-normal font-['Inter'] leading-7">
+            Web and Mobile application for online financial trading and tracking
+            in Forex, Stocks, Shares, Futures, Bonds and so on.
+          </p>
+
+          <span className="inline-flex w-full max-w-[664px]">
+            <Image
+              src={"/images/htrade.png"}
               height={0}
               width={0}
               alt="urunner"

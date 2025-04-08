@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { GiArtificialIntelligence } from "react-icons/gi";
 
 const Banner = () => {
   return (
@@ -51,6 +52,14 @@ const Banner = () => {
         </div>
       </div>
       <div className="overflow-x-scroll flex gap-6 lg:justify-end mt-[90px] w-full max-w-max mx-auto">
+        <button className="min-w-[174px] lg:w-[246px] h-[60px] bg-[#e6e5e5] rounded-[10px] md:rounded-[12px] lg:rounded-[15px] flex gap-2 md:gap-5 items-center justify-center">
+          <span className="text-[40px]">
+            <GiArtificialIntelligence />
+          </span>
+          <span className="text-[#333333] text-base md:text-lg font-normal font-['Poppins']">
+            AI & ML dev
+          </span>
+        </button>
         <button className="min-w-[174px] lg:w-[246px] h-[60px] bg-[#e6e5e5] rounded-[10px] md:rounded-[12px] lg:rounded-[15px] flex gap-2 md:gap-5 items-center justify-center">
           <span className="w-full max-w-[25px] md:max-w-[30px] lg:max-w-[45px]">
             <Image
