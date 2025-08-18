@@ -22,9 +22,9 @@ const navLinks = [
 const Navbar = () => {
   const [isMenu, setIsMenu] = useState(false);
   return (
-    <nav className="relative px-6 xl:px-0">
+    <nav className="relative px-6 xl:px-0 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.15)]">
       <div className="flex items-center justify-between gap-4 w-full max-w-[1300px] mx-auto">
-        <div className="w-full max-w-[80px] md:max-w-[120px] lg:max-w-[184px] ">
+        <div className="w-full max-w-[80px] md:max-w-[120px] lg:max-w-[154px] ">
           <Image
             src={"/logo.jpg"}
             height={0}
@@ -36,7 +36,7 @@ const Navbar = () => {
           />
         </div>
         <div
-          className={`absolute z-[2] w-full lg:w-auto bg-white px-6 lg:px-0 pb-12 lg:pb-0 flex-col lg:flex-row top-full left-0 lg:relative  gap-14 lg:gap-[68px] items-center  ${
+          className={`absolute z-[2] w-full lg:w-auto  bg-white px-6 lg:px-0 pb-12 lg:pb-0 flex-col lg:flex-row top-full left-0 lg:relative  gap-14 lg:gap-[58px] items-center  ${
             isMenu ? "flex" : "zr:hidden lg:flex"
           } `}
         >
@@ -44,7 +44,7 @@ const Navbar = () => {
             <Link
               key={index}
               href={item.path}
-              className="text-[#212121] hover:border-b-2 border-[#212121] text-[20px] font-poppins font-medium"
+              className="text-[#212121] hover:border-b-2 border-[#212121] text-[18px] font-poppins font-medium"
             >
               {item.text}
             </Link>
@@ -56,11 +56,13 @@ const Navbar = () => {
               Join Us
             </span>
           </button>
-          <button className="zr:hidden mb:flex items-center justify-center w-[120px] sm:w-[150px] md:w-[200px] lg:w-[223px]  h-[40px] md:h-[50px] lg:h-[60px] bg-[#161616] rounded-[8px] md:rounded-[12px] lg:rounded-[15px]">
-            <span className="text-center text-[#ffffff] text-sm sm:text-base md:text-[18px] lg:text-[20px] font-poppins font-[600]">
-              Meet with Us
-            </span>
-          </button>
+          <Link href={"/meet-with-us"}>
+            <button className="zr:hidden mb:flex items-center justify-center w-[120px] sm:w-[150px] md:w-[200px] lg:w-[223px]  h-[40px] md:h-[50px] lg:h-[60px] border border-[#161616] text-[#ffffff] hover:bg-white hover:text-[#161616] bg-[#161616] rounded-[8px] md:rounded-[12px] lg:rounded-[15px]">
+              <span className="text-center  text-sm sm:text-base md:text-[18px] lg:text-[20px] font-poppins font-[600]">
+                Meet with Us
+              </span>
+            </button>
+          </Link>
           <button
             onClick={() => setIsMenu((prev) => !prev)}
             className="text-[40px] flex lg:hidden"

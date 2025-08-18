@@ -18,7 +18,8 @@ export default {
       fontFamily:{
         poppins: "Poppins",
         sora:"Sora",
-        inter:"Inter"
+        inter:"Inter",
+        Public_Sans:"Public Sans"
       },
       screens: {
         zr: "0px",
