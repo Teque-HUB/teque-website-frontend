@@ -3,7 +3,7 @@ import React from "react";
 
 const EcommerceCard = () => {
   return (
-    <div className="flex bg-[#F9A474] rounded-[32px] w-full flex-col-reverse lg:flex-row max-w-[629px] h-[260px]">
+    <div className="flex bg-[#F9A474] rounded-[32px] w-full flex-col-reverse lg:flex-row max-w-[629px] h-[260px] pop-hover">
       <div className="pl-[26px] pb-6 h-full flex flex-col justify-end">
         <h2 className=" h-[27px] text-[#1c471f] text-2xl font-bold font-['Inter'] leading-7 mt-6 mb-[14px]">
           E-Commerce

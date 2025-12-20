@@ -112,15 +112,13 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
           subject: "New IT Team Request",
           body: `
             <h2>New IT Team Request</h2>
-            <p><strong>Name:</strong> ${formData.firstName} ${
-            formData.lastName
-          }</p>
+            <p><strong>Name:</strong> ${formData.firstName} ${formData.lastName
+            }</p>
             <p><strong>Email:</strong> ${formData.email}</p>
             <p><strong>Preferred Date:</strong> ${formData.date}</p>
             <p><strong>Needs Description:</strong></p>
             <p>${formData.needs.replace(/\n/g, "<br>")}</p>
-            <p><strong>Contact Consent:</strong> ${
-              formData.agree ? "Yes" : "No"
+            <p><strong>Contact Consent:</strong> ${formData.agree ? "Yes" : "No"
             }</p>
           `,
         }),
@@ -204,11 +202,10 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
         <form className="p-6 flex flex-col gap-4" onSubmit={handleSubmit}>
           {submitMessage && (
             <div
-              className={`p-3 rounded-[4px] text-xs md:text-sm ${
-                submitMessage.includes("successfully")
+              className={`p-3 rounded-[4px] text-xs md:text-sm ${submitMessage.includes("successfully")
                   ? "bg-green-100 text-green-700"
                   : "bg-red-100 text-red-700"
-              }`}
+                }`}
             >
               {submitMessage}
             </div>
@@ -228,9 +225,8 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
                 id="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 ${
-                  errors.firstName ? "border-red-500" : "border-[#E5E7E8]"
-                }`}
+                className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 ${errors.firstName ? "border-red-500" : "border-[#E5E7E8]"
+                  }`}
                 placeholder="Type here"
               />
               {errors.firstName && (
@@ -251,9 +247,8 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
                 id="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 text-[14px] placeholder:text-[#959FA3] ${
-                  errors.lastName ? "border-red-500" : "border-[#E5E7E8]"
-                }`}
+                className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 text-[14px] placeholder:text-[#959FA3] ${errors.lastName ? "border-red-500" : "border-[#E5E7E8]"
+                  }`}
                 placeholder="Type here"
               />
               {errors.lastName && (
@@ -275,9 +270,8 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
               id="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 ${
-                errors.email ? "border-red-500" : "border-[#E5E7E8]"
-              }`}
+              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 ${errors.email ? "border-red-500" : "border-[#E5E7E8]"
+                }`}
               placeholder="Type here"
             />
             {errors.email && (
@@ -297,9 +291,8 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
               id="needs"
               value={formData.needs}
               onChange={handleInputChange}
-              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 h-[98px] ${
-                errors.needs ? "border-red-500" : "border-[#E5E7E8]"
-              }`}
+              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 h-[98px] ${errors.needs ? "border-red-500" : "border-[#E5E7E8]"
+                }`}
               placeholder="Tell us what you want to build and we would recommend an IT Team for you"
             />
             {errors.needs && (
@@ -320,9 +313,8 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
               id="date"
               value={formData.date}
               onChange={handleInputChange}
-              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 md:max-w-[292px] text-[#959FA3] ${
-                errors.date ? "border-red-500" : "border-[#E5E7E8]"
-              }`}
+              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 md:max-w-[292px] text-[#959FA3] ${errors.date ? "border-red-500" : "border-[#E5E7E8]"
+                }`}
               placeholder="Type here"
             />
             {errors.date && (
@@ -354,7 +346,7 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
               type="button"
               onClick={handleCancel}
               disabled={isSubmitting}
-              className="px-6 py-3 bg-neutral-100 hover:opacity-65 rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-neutral-100 hover:opacity-65 rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50 pop-hover-btn"
             >
               <span className="justify-start text-zinc-900 text-xs md:text-sm font-semibold font-['Public_Sans'] capitalize leading-10">
                 Cancel
@@ -364,7 +356,7 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-3 bg-lime-300 border border-lime-300 hover:bg-white  rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50"
+              className="px-6 py-3 bg-lime-300 border border-lime-300 hover:bg-white  rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50 pop-hover-btn"
             >
               <p className="justify-start text-neutral-800 text-xs md:text-sm font-semibold font-['Public_Sans'] capitalize leading-10">
                 {isSubmitting ? "Sending..." : "Ask for a Quote"}

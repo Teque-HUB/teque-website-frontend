@@ -13,8 +13,8 @@ const SectionFour = () => {
         various parts of the world.
       </p>
 
-      <div className="mt-11 overflow-x-scroll  w-full flex gap-3">
-        <div className="w-full max-w-[630px] bg-[#0077F9] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px]">
+      <div className="mt-11 overflow-x-scroll  w-full flex gap-3 pb-8">
+        <div className="w-full max-w-[630px] bg-[#0077F9] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px] pop-hover">
           <span className="inline-flex h-full max-h-[60px] w-full max-w-[186px]">
             <Image
               src={"/images/urunner.svg"}
@@ -42,7 +42,7 @@ const SectionFour = () => {
             />
           </span>
         </div>
-        <div className="w-full max-w-[630px] bg-[#057953] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px]">
+        <div className="w-full max-w-[630px] bg-[#057953] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px] pop-hover">
           <span className="inline-flex h-full max-h-[60px] w-full max-w-[186px]">
             <Image
               src={"/images/vapzer.svg"}
@@ -71,7 +71,7 @@ const SectionFour = () => {
             />
           </span>
         </div>
-        <div className="w-full max-w-[630px] bg-[#665824] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px]">
+        <div className="w-full max-w-[630px] bg-[#665824] rounded-[20px] md:rounded-[30px] p-7 sm:p-8 md:p-10 lg:p-[50px] pop-hover">
           <span className="inline-flex h-full max-h-[60px] w-full max-w-[186px]">
             <Image
               src={"/images/htradelogo.png"}
@@ -102,7 +102,7 @@ const SectionFour = () => {
         </div>
       </div>
 
-      <button className="h-[72px] w-fit mt-10 pl-12 pr-8 py-5 bg-[#161616] rounded-[36px] justify-start items-center gap-[20px] inline-flex">
+      <button className="h-[72px] w-fit mt-10 pl-12 pr-8 py-5 bg-[#161616] rounded-[36px] justify-start items-center gap-[20px] inline-flex pop-hover-btn">
         <span className=" text-white text-base font-normal font-['Inter'] uppercase leading-loose tracking-wider">
           Reach out to us
         </span>

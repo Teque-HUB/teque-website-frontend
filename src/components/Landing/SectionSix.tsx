@@ -1,11 +1,53 @@
+"use client";
 import React from "react";
 import TeamItem from "./TeamItem";
 import { GoArrowUpRight } from "react-icons/go";
 
+const teamMembers = [
+  {
+    name: "Favour",
+    surname: "Etunwoke",
+    role: "Senior Software Engineer/Founder",
+    image: "/images/favour.jpg",
+  },
+  {
+    name: "Uche",
+    surname: "Jacob",
+    role: "CTO/ Co-founder",
+    image: "/images/uche.jpg",
+  },
+  {
+    name: "Timothy",
+    surname: "Ilegbusi",
+    role: "UI/UX Designer",
+    image: "/images/IMG_0722.jpg",
+  },
+  {
+    name: "Igbagbo",
+    surname: "Olaleye",
+    role: "Lead Frontend Developer",
+    image: "/images/igee.jpg",
+  },
+  {
+    name: "Jesutoni",
+    surname: "Aderibigbe",
+    role: "Lead Mobile Engineer",
+    image: "/images/toni.jpg",
+  },
+  {
+    name: "Blessed",
+    surname: "Oscar",
+    role: "Lead Backend Engineer",
+    image: "/images/oscar.png",
+  },
+];
+
 const SectionSix = () => {
+  const allTeamMembers = [...teamMembers, ...teamMembers];
+
   return (
-    <section className="w-full max-w-max mx-auto flex flex-col px-6 lg:px-0 items-center pb-40">
-      <div className="w-full flex flex-wrap justify-between">
+    <section className="w-full flex flex-col items-center pb-40 overflow-hidden">
+      <div className="w-full max-w-max mx-auto flex flex-wrap justify-between px-6 lg:px-0">
         <h1 className="flex justify-center w-full lg:w-fit">
           <span className="text-[#212121]  text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-['Satoshi Variable'] leading-[57.60px]">
             Meet the team
@@ -19,12 +61,23 @@ const SectionSix = () => {
           building your projects.
         </p>
       </div>
-      <div className="w-full overflow-x-scroll flex gap-8 mt-14 lg:justify-center">
-        <TeamItem />
-        <TeamItem />
-        <TeamItem />
+
+      <div className="w-full max-w-[1200px] mx-auto mt-14 overflow-hidden px-4 md:px-0">
+        <div className="marquee-container py-10">
+          <div className="marquee-content marquee-slow gap-8">
+            {allTeamMembers.map((member, index) => (
+              <TeamItem
+                key={index}
+                name={member.name}
+                surname={member.surname}
+                role={member.role}
+                image={member.image}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-      <button className="h-[72px] w-fit mt-10 pl-12 pr-8 py-5 bg-[#161616] rounded-[36px] justify-start items-center gap-[20px] inline-flex">
+      <button className="h-[72px] w-fit mt-10 pl-12 pr-8 py-5 bg-[#161616] rounded-[36px] justify-start items-center gap-[20px] inline-flex pop-hover-btn">
         <span className=" text-white text-base font-normal font-['Inter'] uppercase leading-loose tracking-wider">
           Join our team
         </span>

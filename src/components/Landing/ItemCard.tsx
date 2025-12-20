@@ -7,7 +7,7 @@ const ItemCard: React.FC<{ text: string; heading: string; icon: string }> = ({
   icon,
 }) => {
   return (
-    <div className="w-full lg:w-[360px] min-h-[348px] flex flex-col py-8 md:py-10 lg:py-12 px-6 md:px-8 lg:px-10 relative bg-white rounded-[22px] shadow-[0px_13px_100px_0px_rgba(199,199,199,0.25)]">
+    <div className="w-full lg:w-[360px] min-h-[348px] flex flex-col py-8 md:py-10 lg:py-12 px-6 md:px-8 lg:px-10 relative bg-white rounded-[22px] shadow-[0px_13px_100px_0px_rgba(199,199,199,0.25)] pop-hover">
       <div className="w-20 h-20 ">
         <Image
           src={`/logos/${icon}.svg`}

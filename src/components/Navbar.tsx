@@ -14,7 +14,7 @@ const navLinks = [
     path: "/blog",
   },
   {
-    text: "Employees",
+    text: "Team",
     path: "/employees",
   },
 ];
@@ -36,9 +36,8 @@ const Navbar = () => {
           />
         </div>
         <div
-          className={`absolute z-[2] w-full lg:w-auto  bg-white px-6 lg:px-0 pb-12 lg:pb-0 flex-col lg:flex-row top-full left-0 lg:relative  gap-14 lg:gap-[58px] items-center  ${
-            isMenu ? "flex" : "zr:hidden lg:flex"
-          } `}
+          className={`absolute z-[2] w-full lg:w-auto  bg-white px-6 lg:px-0 pb-12 lg:pb-0 flex-col lg:flex-row top-full left-0 lg:relative  gap-14 lg:gap-[58px] items-center  ${isMenu ? "flex" : "zr:hidden lg:flex"
+            } `}
         >
           {navLinks.map((item, index) => (
             <Link
@@ -51,13 +50,13 @@ const Navbar = () => {
           ))}
         </div>
         <div className="flex items-center gap-4 md:gap-8 lg:gap-10">
-          <button className="zr:hidden mb:flex items-center justify-center w-[120px] sm:w-[150px] md:w-[200px] lg:w-[223px] h-[40px] md:h-[50px] lg:h-[60px] bg-[#E7E6E6] rounded-[8px] md:rounded-[12px] lg:rounded-[15px]">
+          <button className="zr:hidden mb:flex items-center justify-center w-[120px] sm:w-[150px] md:w-[200px] lg:w-[223px] h-[40px] md:h-[50px] lg:h-[60px] bg-[#E7E6E6] rounded-[8px] md:rounded-[12px] lg:rounded-[15px] pop-hover-btn">
             <span className="text-center text-[#161616] text-sm sm:text-base md:text-[18px] lg:text-[20px] font-poppins font-[600]">
               Join Us
             </span>
           </button>
           <Link href={"/meet-with-us"}>
-            <button className="zr:hidden mb:flex items-center justify-center w-[120px] sm:w-[150px] md:w-[200px] lg:w-[223px]  h-[40px] md:h-[50px] lg:h-[60px] border border-[#161616] text-[#ffffff] hover:bg-white hover:text-[#161616] bg-[#161616] rounded-[8px] md:rounded-[12px] lg:rounded-[15px]">
+            <button className="zr:hidden mb:flex items-center justify-center w-[120px] sm:w-[150px] md:w-[200px] lg:w-[223px]  h-[40px] md:h-[50px] lg:h-[60px] border border-[#161616] text-[#ffffff] hover:bg-white hover:text-[#161616] bg-[#161616] rounded-[8px] md:rounded-[12px] lg:rounded-[15px] pop-hover-btn">
               <span className="text-center  text-sm sm:text-base md:text-[18px] lg:text-[20px] font-poppins font-[600]">
                 Meet with Us
               </span>

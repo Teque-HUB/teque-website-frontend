@@ -3,7 +3,7 @@ import React from "react";
 
 const WebThreeCard = () => {
   return (
-    <div className="w-full lg:w-fit min-w-[344px] h-[543.93px] py-10 px-5 relative bg-[#c3b2e7] rounded-[32px] flex-col justify-start items-start inline-flex">
+    <div className="w-full lg:w-fit min-w-[344px] h-[543.93px] py-10 px-5 relative bg-[#c3b2e7] rounded-[32px] flex-col justify-start items-start inline-flex pop-hover">
       <h2 className="text-[#52225e] text-2xl font-bold font-['Inter'] leading-7">
         Web 3, Forex &<br />
         Cryptocurrency

@@ -3,7 +3,7 @@ import React from "react";
 
 const SchedulingCard = () => {
   return (
-    <div className=" flex justify-between bg-[#F682A5] rounded-[32px] pb-6 w-full gap-[50px]">
+    <div className=" flex justify-between bg-[#F682A5] rounded-[32px] pb-6 w-full gap-[50px] pop-hover">
       <div className="flex flex-col gap-5 justify-end pl-6 w-full max-w-[261px]">
         <h2 className="w-[130.43px] h-[27px] text-[#52225e] text-2xl font-bold font-['Inter'] leading-7">
           Scheduling

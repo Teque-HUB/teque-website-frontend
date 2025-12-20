@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import TypingText from "./TypingText";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="flex flex-wrap lg:flex-nowrap justify-between w-full max-w-max mx-auto gap-5 md:gap-10 lg:gap-[58px]">
         <div>
           <h1 className="text-white lg:text-right text-[36px] sm:text-[50px] md:text-[80px] lg:text-[110px] font-bold font-['Clash Display'] lg:leading-[110px] tracking-[2.2px]">
-            Let’s Work <br /> Together
+            <TypingText text="Let’s Work" /> <br /> <TypingText text="Together" delay={1500} />
           </h1>
         </div>
         <div className="flex flex-col gap-10">
@@ -16,7 +17,7 @@ const Footer = () => {
             websites for you. lets us help you create good identities for your
             brands.
           </p>
-          <button className="h-[71px] px-[57px] py-[21px] w-fit bg-[#caef45] rounded-[100px] border justify-center items-center gap-2.5 inline-flex">
+          <button className="h-[71px] px-[57px] py-[21px] w-fit bg-[#caef45] rounded-[100px] border justify-center items-center gap-2.5 inline-flex pop-hover-btn">
             <span className="text-right text-[#1b1d20] text-2xl font-bold font-['Aeonik']">
               Contact Now
             </span>
@@ -41,24 +42,20 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="flex flex-col gap-2 md:gap-4 lg:gap-8">
+        {/* <div className="flex flex-col gap-2 md:gap-4 lg:gap-8">
           <h2 className="text-white text-3xl font-medium font-['Clash Display'] leading-9">
             Address
           </h2>
           <p className="w-[233px] text-white text-sm sm:text-base md:text-[20px] lg:text-[22px] font-['Aeonik'] leading-[30px]">
-            356, road - 3, NewYork, United State
+            REMOTE
           </p>
-        </div>
+        </div> */}
         <div className="flex flex-col gap-2 md:gap-4 lg:gap-8">
           <h2 className="text-white text-3xl font-medium font-['Clash Display'] leading-9">
-            Call Us
+            Contact Us
           </h2>
           <p className="text-white text-sm sm:text-base md:text-[20px] lg:text-[22px] font-['Aeonik'] leading-[30px] lg:leading-[60px]">
-            +0123 57896857
-            <br />
-            +0123 57896857
-            <br />
-            xyzfreebook@gmail.com
+            info@teque.tech
           </p>
         </div>
         <div className="flex flex-col gap-2 md:gap-4 lg:gap-8">

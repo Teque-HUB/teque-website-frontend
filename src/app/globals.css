@@ -16,3 +16,60 @@ body {
   transition: all 0.2s linear;
   font-family: "Poppins", "Sora", "Inter", "Public Sans", sans-serif;
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 24px;
+  /* Matches gap-6 */
+  min-width: 100%;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+/* Global Pop Hover Effect for Containers/Cards */
+.pop-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.pop-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  z-index: 30;
+}
+
+/* Global Pop Hover Effect for Buttons */
+.pop-hover-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pop-hover-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  z-index: 40;
+}

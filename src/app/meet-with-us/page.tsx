@@ -20,7 +20,7 @@ const page = () => {
 
       <button
         onClick={meetWithUsModal.open}
-        className="w-44 h-12 mt-14 mx-auto relative bg-neutral-800 border border-neutral-800 text-white  hover:text-neutral-800  hover:bg-white rounded-[48px]"
+        className="w-44 h-12 mt-14 mx-auto relative bg-neutral-800 border border-neutral-800 text-white  hover:text-neutral-800  hover:bg-white rounded-[48px] pop-hover-btn"
       >
         <span className="left-[28px] top-[12px] absolute justify-center text-base font-medium font-['Cabin'] leading-normal">
           Get Your IT Team
