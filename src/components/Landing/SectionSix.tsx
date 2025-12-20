@@ -20,7 +20,7 @@ const teamMembers = [
     name: "Timothy",
     surname: "Ilegbusi",
     role: "UI/UX Designer",
-    image: "/images/IMG_0722.jpg",
+    image: "/images/Timothy.jpg",
   },
   {
     name: "Igbagbo",
@@ -39,6 +39,12 @@ const teamMembers = [
     surname: "Oscar",
     role: "Lead Backend Engineer",
     image: "/images/oscar.png",
+  },
+  {
+    name: "Uzoma",
+    surname: "Ike",
+    role: "AI/ML Engineer",
+    image: "/images/uzor.png",
   },
 ];
 
