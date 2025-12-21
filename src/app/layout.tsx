@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import MainLayout from "@/components/MainLayout";
+import MainLayout from "../components/MainLayout";
 
 export const metadata: Metadata = {
   title: "Teque",
