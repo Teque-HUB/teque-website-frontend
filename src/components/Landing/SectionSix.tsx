@@ -38,13 +38,13 @@ const teamMembers = [
     name: "Blessed",
     surname: "Oscar",
     role: "Lead Backend Engineer",
-    image: "/images/oscar.png",
+    image: "/images/oscar.jpg",
   },
   {
     name: "Uzoma",
     surname: "Ike",
     role: "AI/ML Engineer",
-    image: "/images/uzor.png",
+    image: "/images/uzor.jpg",
   },
 ];
 
