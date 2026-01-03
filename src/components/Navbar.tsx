@@ -17,6 +17,10 @@ const navLinks = [
     text: "Team",
     path: "/employees",
   },
+  {
+    text: "Case Study",
+    path: "/case-study",
+  },
 ];
 
 const Navbar = () => {
