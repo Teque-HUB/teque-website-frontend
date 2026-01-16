@@ -4,13 +4,16 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { IoClose } from "react-icons/io5";
 import { style } from "@/utils/config";
-import { FaArrowRightLong, FaChevronRight } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 interface FormData {
   firstName: string;
   lastName: string;
   email: string;
   needs: string;
+  teamSize: string;
+  roles: string[];
+  timeline: string;
   date: string;
   agree: boolean;
 }
@@ -20,6 +23,9 @@ interface FormErrors {
   lastName?: string;
   email?: string;
   needs?: string;
+  teamSize?: string;
+  roles?: string;
+  timeline?: string;
   date?: string;
   agree?: string;
 }
@@ -37,9 +43,32 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
     lastName: "",
     email: "",
     needs: "",
+    teamSize: "",
+    roles: [],
+    timeline: "",
     date: "",
     agree: false,
   });
+
+  const availableRoles = [
+    "Frontend Developer",
+    "Backend Developer",
+    "Fullstack Developer",
+    "UI/UX Designer",
+    "Mobile Developer",
+    "QA Engineer",
+    "DevOps",
+    "Data Scientist",
+    "AI/ML Engineer",
+    "Product Manager"
+  ];
+
+  const timelineOptions = [
+    "1-3 months",
+    "3-6 months",
+    "1 year",
+    "Long term"
+  ];
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,7 +77,6 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    // Required field validations
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required";
     }
@@ -65,6 +93,18 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
 
     if (!formData.needs.trim()) {
       newErrors.needs = "Please describe your needs";
+    }
+
+    if (!formData.teamSize.trim()) {
+      newErrors.teamSize = "Number of team members is required";
+    }
+
+    if (!formData.roles.length) {
+      newErrors.roles = "Please select at least one role";
+    }
+
+    if (!formData.timeline) {
+      newErrors.timeline = "Please select a project timeline";
     }
 
     if (!formData.date) {
@@ -90,12 +130,33 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
       [name]: type === "checkbox" ? checked : value,
     }));
 
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({
         ...prev,
         [name]: undefined,
       }));
+    }
+  };
+
+  const toggleRole = (role: string) => {
+    setFormData((prev) => {
+      const isSelected = prev.roles.includes(role);
+      const newRoles = isSelected
+        ? prev.roles.filter((r) => r !== role)
+        : [...prev.roles, role];
+
+      return { ...prev, roles: newRoles };
+    });
+
+    if (errors.roles) {
+      setErrors((prev) => ({ ...prev, roles: undefined }));
+    }
+  };
+
+  const selectTimeline = (option: string) => {
+    setFormData((prev) => ({ ...prev, timeline: option }));
+    if (errors.timeline) {
+      setErrors((prev) => ({ ...prev, timeline: undefined }));
     }
   };
 
@@ -112,14 +173,15 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
           subject: "New IT Team Request",
           body: `
             <h2>New IT Team Request</h2>
-            <p><strong>Name:</strong> ${formData.firstName} ${formData.lastName
-            }</p>
+            <p><strong>Name:</strong> ${formData.firstName} ${formData.lastName}</p>
             <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Team Size Needed:</strong> ${formData.teamSize}</p>
+            <p><strong>Roles Needed:</strong> ${formData.roles.join(", ")}</p>
+            <p><strong>Project Timeline:</strong> ${formData.timeline}</p>
             <p><strong>Preferred Date:</strong> ${formData.date}</p>
             <p><strong>Needs Description:</strong></p>
-            <p>${formData.needs.replace(/\n/g, "<br>")}</p>
-            <p><strong>Contact Consent:</strong> ${formData.agree ? "Yes" : "No"
-            }</p>
+            <p>${formData.needs.replace(/\n| /g, "<br>")}</p>
+            <p><strong>Contact Consent:</strong> ${formData.agree ? "Yes" : "No"}</p>
           `,
         }),
       });
@@ -147,13 +209,15 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
       await sendEmail(formData);
       setSubmitMessage("Request sent successfully! We'll contact you soon.");
 
-      // Reset form after successful submission
       setTimeout(() => {
         setFormData({
           firstName: "",
           lastName: "",
           email: "",
           needs: "",
+          teamSize: "",
+          roles: [],
+          timeline: "",
           date: "",
           agree: false,
         });
@@ -173,6 +237,9 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
       lastName: "",
       email: "",
       needs: "",
+      teamSize: "",
+      roles: [],
+      timeline: "",
       date: "",
       agree: false,
     });
@@ -199,12 +266,12 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
           </h2>
         </div>
 
-        <form className="p-6 flex flex-col gap-4" onSubmit={handleSubmit}>
+        <form className="p-6 flex flex-col gap-4 overflow-y-auto max-h-[80vh]" onSubmit={handleSubmit}>
           {submitMessage && (
             <div
               className={`p-3 rounded-[4px] text-xs md:text-sm ${submitMessage.includes("successfully")
-                  ? "bg-green-100 text-green-700"
-                  : "bg-red-100 text-red-700"
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
                 }`}
             >
               {submitMessage}
@@ -302,6 +369,57 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
 
           <div className="w-full flex flex-col gap-1.5">
             <label
+              htmlFor="teamSize"
+              className="justify-start text-zinc-900 text-xs md:text-sm font-normal font-['Public_Sans'] leading-tight"
+            >
+              Number of Team Members Needed *
+            </label>
+            <input
+              type="text"
+              name="teamSize"
+              id="teamSize"
+              value={formData.teamSize}
+              onChange={handleInputChange}
+              className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 ${errors.teamSize ? "border-red-500" : "border-[#E5E7E8]"
+                }`}
+              placeholder="e.g. 3 or 5-10"
+            />
+            {errors.teamSize && (
+              <span className="text-red-500 text-xs">{errors.teamSize}</span>
+            )}
+          </div>
+
+          <div className="w-full flex flex-col gap-1.5">
+            <label
+              className="justify-start text-zinc-900 text-xs md:text-sm font-normal font-['Public_Sans'] leading-tight"
+            >
+              Project Timeline *
+            </label>
+            <div className="flex flex-wrap gap-3">
+              {timelineOptions.map((option) => {
+                const isSelected = formData.timeline === option;
+                return (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => selectTimeline(option)}
+                    className={`px-4 py-2 rounded-full border text-sm transition-all ${isSelected
+                      ? "bg-[#161616] border-[#161616] text-white"
+                      : "border-[#E5E7E8] text-zinc-600 hover:border-[#161616]"
+                      }`}
+                  >
+                    {option}
+                  </button>
+                );
+              })}
+            </div>
+            {errors.timeline && (
+              <span className="text-red-500 text-xs">{errors.timeline}</span>
+            )}
+          </div>
+
+          <div className="w-full flex flex-col gap-1.5">
+            <label
               htmlFor="date"
               className="justify-start text-zinc-900 text-xs md:text-sm font-normal font-['Public_Sans'] leading-tight"
             >
@@ -315,10 +433,64 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
               onChange={handleInputChange}
               className={`rounded-[4px] border text-sm md:text-base px-4 py-2.5 md:max-w-[292px] text-[#959FA3] ${errors.date ? "border-red-500" : "border-[#E5E7E8]"
                 }`}
-              placeholder="Type here"
             />
             {errors.date && (
               <span className="text-red-500 text-xs">{errors.date}</span>
+            )}
+          </div>
+
+          <div className="w-full flex flex-col gap-1.5">
+            <label className="justify-start text-zinc-900 text-xs md:text-sm font-normal font-['Public_Sans'] leading-tight">
+              Roles Needed *
+            </label>
+
+            <div
+              className={`flex flex-wrap gap-2 min-h-[44px] p-2 rounded-[4px] border ${errors.roles ? "border-red-500" : "border-[#E5E7E8]"
+                }`}
+            >
+              {formData.roles.length === 0 && (
+                <span className="text-[#959FA3] text-sm md:text-base px-2 py-1">
+                  Select roles below...
+                </span>
+              )}
+              {formData.roles.map((role) => (
+                <div
+                  key={role}
+                  className="flex items-center gap-1.5 px-3 py-1 bg-[#161616] text-white rounded-full text-xs md:text-sm font-['Public_Sans']"
+                >
+                  <span>{role}</span>
+                  <button
+                    type="button"
+                    onClick={() => toggleRole(role)}
+                    className="hover:text-red-400 transition-colors"
+                  >
+                    <IoClose size={14} />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {availableRoles.map((role) => {
+                const isSelected = formData.roles.includes(role);
+                return (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => toggleRole(role)}
+                    className={`px-3 py-1.5 rounded-full border text-xs transition-all ${isSelected
+                        ? "bg-lime-300 border-lime-300 text-black"
+                        : "border-[#E5E7E8] text-zinc-600 hover:border-lime-300"
+                      }`}
+                  >
+                    {role}
+                  </button>
+                );
+              })}
+            </div>
+
+            {errors.roles && (
+              <span className="text-red-500 text-xs">{errors.roles}</span>
             )}
           </div>
 
@@ -341,14 +513,14 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
             </div>
           </div>
 
-          <div className="flex mt-12 justify-between">
+          <div className="flex mt-8 justify-between">
             <button
               type="button"
               onClick={handleCancel}
               disabled={isSubmitting}
-              className="px-6 py-3 bg-neutral-100 hover:opacity-65 rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50 pop-hover-btn"
+              className="px-6 py-3 bg-neutral-100 hover:opacity-65 rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50"
             >
-              <span className="justify-start text-zinc-900 text-xs md:text-sm font-semibold font-['Public_Sans'] capitalize leading-10">
+              <span className="text-zinc-900 text-xs md:text-sm font-semibold font-['Public_Sans']">
                 Cancel
               </span>
             </button>
@@ -356,16 +528,12 @@ const MeetWithUsModal: React.FC<ModalProps> = ({ modal }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-3 bg-lime-300 border border-lime-300 hover:bg-white  rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50 pop-hover-btn"
+              className="px-6 py-3 bg-lime-300 border border-lime-300 hover:bg-white rounded-full inline-flex justify-center items-center gap-2 disabled:opacity-50"
             >
-              <p className="justify-start text-neutral-800 text-xs md:text-sm font-semibold font-['Public_Sans'] capitalize leading-10">
+              <p className="text-neutral-800 text-xs md:text-sm font-semibold font-['Public_Sans']">
                 {isSubmitting ? "Sending..." : "Ask for a Quote"}
               </p>
-              {!isSubmitting && (
-                <span>
-                  <FaArrowRightLong />
-                </span>
-              )}
+              {!isSubmitting && <FaArrowRightLong />}
             </button>
           </div>
         </form>
